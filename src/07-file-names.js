@@ -14,25 +14,26 @@
  *
  */
 function renameFiles(names) {
+  const n = names;
   let count = 0;
-  for (let j = 0; j < names.length; j++) {
+  for (let j = 0; j < n.length; j++) {
     for (let i = 0; i < j; i++) {
-      if (names[i] === names[i + j]) {
+      if (n[i] === n[i + j]) {
         count++;
-        if (names[i].slice(-1) === ')') {
+        if (n[i].slice(-1) === ')') {
           count--;
         } else {
-          names[i + j] = names[i + j].concat(`(${count})`);
+          n[i + j] = n[i + j].concat(`(${count})`);
           count++;
         }
-        if (names[i].slice(-1) === ')') {
+        if (n[i].slice(-1) === ')') {
           count--;
-          names[i + j] = names[i + j].concat(`(${count})`);
+          n[i + j] = n[i + j].concat(`(${count})`);
         }
       }
     }
   }
-  return names;
+  return n;
 }
 
 module.exports = renameFiles;
