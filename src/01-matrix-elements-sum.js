@@ -15,19 +15,20 @@
  * The result should be 9
  */
 function getMatrixElementsSum(matrix) {
-  for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < matrix[0].length; j++) {
-      if (matrix[i][j] === 0 && typeof matrix[i + 1] !== 'undefined') {
-        matrix[i + 1][j] = 0;
+  const mat = matrix;
+  for (let i = 0; i < mat.length; i++) {
+    for (let j = 0; j < mat[0].length; j++) {
+      if (mat[i][j] === 0 && typeof mat[i + 1] !== 'undefined') {
+        mat[i + 1][j] = 0;
       }
     }
   }
 
   const result = [];
-  for (let k = 0; k < matrix.length; k++) {
-    for (let n = 0; n < matrix[0].length; n++) {
-      if (matrix[k][n] !== 0) {
-        result.push(matrix[k][n]);
+  for (let k = 0; k < mat.length; k++) {
+    for (let n = 0; n < mat[0].length; n++) {
+      if (mat[k][n] !== 0) {
+        result.push(mat[k][n]);
       }
     }
   }
